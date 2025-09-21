@@ -1,10 +1,9 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
+const userControllers = require('../controllers/userControllers')
+const jwtAuthentication = require('../middlewares/jwtAuthentication')
 
+router.post("/create", userControllers.createUser);
+router.get('/details',jwtAuthentication.verifyJwt  )
 
-router.get('/ping',(req,res)=>{
- res.send('The server is running')
-})
-
-
-module.exports= router
+module.exports = router;
