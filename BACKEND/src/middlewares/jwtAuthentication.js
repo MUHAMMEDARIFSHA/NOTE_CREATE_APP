@@ -33,12 +33,12 @@ const verifyJwt = (req, res, next) => {
     }
     if (user) {
       console.log("found user ==>", user.name);
-      return res.status(200).json({user : user.name})
-    //   next();
+    //   return res.status(200).json({ user: user.name });
+        next();
     } else {
       console.log("No user found");
-      return res.status(400).json({message : "User not found"})
+      return res.status(400).json({ message: "User not found" });
     }
   });
 };
-module.exports = { generateToken , verifyJwt};
+module.exports = { generateToken, verifyJwt };
